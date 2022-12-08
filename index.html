@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <!-- Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,500&family=Montserrat:wght@300;400;500;600;700&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,300;1,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- style -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>Frontend Mentor | Tip calculator app</title>
+  </head>
+  <body>
+    <main>
+      <div class="logo">
+        <img src="images/logo.svg" alt="logo">
+      </div>
+      <form class="calc_tips">
+        <div class="bill_container">
+          <div class="bill">
+            <label for="bill-amout">Bill</label>
+            <input type="text"  id="bill-input" class="bill_input" placeholder="0" pattern="[0-9.]*">
+            <span class="erro-msg">Can't be zero</span>
+          </div>
+          <div class="tips">
+            <span>Select Tip %</span>
+            <div class="tips_btns">
+              <button class="tips_btn" data-tip="5">5%</button>
+              <button class="tips_btn" data-tip="10">10%</button>
+              <button class="tips_btn" data-tip="15">15%</button>
+              <button class="tips_btn" data-tip="25">25%</button>
+              <button class="tips_btn" data-tip="50">50%</button>
+              <input type="text" class="custom_tip_input"  placeholder="Custom" pattern="[0-9.]*">
+            </div>
+          </div>
+          <div class="people_num">
+            <label for="people">Number Of People</label>
+            <input type="text" id="people" class="people_input" placeholder="0" pattern="[0-9]*">
+            <span class="erro-msg">Can't be zero</span>
+          </div>
+        </div>
+        <div class="result">
+          <div class="tip_amount">
+            <p class="tip_info">Tip Amount <br><span>/ person</span></p>
+            <p class="large_num tip-for-person">$0.00</p>
+          </div>
+          <div class="total">
+            <p class="tip_info">Total <br><span>/ person</span></p>
+            <p class="large_num total-for-person">$0.00</p>
+          </div>
+          <input type="reset" value="Reset" >
+        </div>
+      </form>    
+    </main>  
+    <script src="app.js"></script>
+  </body>
+</html>

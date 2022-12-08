@@ -1,0 +1,255 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font: inherit;
+}
+
+:root{
+    --bg-color--:hsl(185, 41%, 84%);
+    --white-color--:hsl(0, 0%, 100%);
+    --very-dark-cyan--: hsl(183, 100%, 15%);
+    --very-light-grayish-cyan--: hsl(189, 41%, 97%);
+    --light-grayish-cyan--: hsl(185, 41%, 84%);
+    --grayish--cyan--: hsl(184, 14%, 56%);
+    --dark--grayish--cyan--: hsl(186, 14%, 43%);
+    --strong-cyan--:hsl(172, 67%, 45%);
+    --hover--color:hsl(172, 90%, 70%);
+    --red-color:rgba(201, 27, 27,.7);
+    --fw-700--:700;
+    --border--radius:12px;
+}
+html, body {
+    height: 100%;
+}
+body{
+    font-family: 'Space Mono', monospace;
+    background-color: var(--bg-color--);
+    display: grid;
+    place-items: center;
+    margin: 0 15px;
+}
+
+
+button{
+    outline: 0;
+}
+
+input ,button{
+    border: 0;
+    cursor: pointer;
+    outline: 0;
+}
+
+
+
+/*End Of Main styles*/
+
+main div.logo{
+    text-align: center;
+    margin:30px 0;
+}
+div.logo img{
+    width: 70px;
+}
+
+main form.calc_tips{
+    display: grid;
+    margin:auto;
+    background-color: var(--white-color--);
+    border-radius: var(--border--radius);
+    padding: 25px;
+    gap: 30px;
+}
+@media (min-width:670px){
+    main form.calc_tips{
+        grid-template-columns: 1fr 1fr;
+        max-width: 768px;
+    }
+}
+
+/*Bill--Start*/
+
+.bill_container {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+} 
+
+.bill , .people_num{
+    position: relative;
+}
+
+.bill_container .bill input{
+    background-image: url(images/icon-dollar.svg);
+}
+.bill_container .people_num input{
+    background-image: url(images/icon-person.svg);
+}
+
+.bill_container .bill input , 
+.bill_container .people_num input{
+    background-repeat: no-repeat;
+    background-position: 15px center;
+}
+.bill_container .bill input::placeholder , 
+.bill_container .people_num input::placeholder{
+    color: var(--grayish--cyan--);
+}
+
+
+
+.bill_container input:not(.invalid-input):valid:is(:hover,:focus),
+input.active-input{
+    outline: 2px solid var(--strong-cyan--);
+}
+.bill_container input:invalid:is(:hover,:focus),
+input.invalid-input{
+    outline: 2px solid var(--red-color);
+}
+
+
+
+.bill_container .tips .tips_btns input, 
+.bill input , 
+.people_num input{
+    background-color: var(--very-light-grayish-cyan--);
+    text-align: end;
+    padding:6px 10px;
+    caret-color: var(--strong-cyan--);
+    color: var(--very-dark-cyan--);
+}
+.bill_container .tips .tips_btns input::placeholder{
+    color: var(--dark--grayish--cyan--);
+}
+.bill_container input , 
+.bill_container button{
+    font-size: 20px;
+    font-weight: 600;
+}
+@media (min-width:768px) {
+    .bill_container input , 
+    .bill_container button{
+        font-size: 22px;
+    }
+}
+
+.bill_container input:not(.custom_tips_input) , 
+.result input[type="reset"]{
+    width: 100%;
+    border-radius: 4px;
+}
+
+.bill_container  label ,
+.bill_container .tips span {
+    display: block;
+    color:var(--dark--grayish--cyan--);
+    font-size: 12px;
+    font-weight: var(--fw-700--);
+    margin-bottom: 5px;
+}
+
+.bill_container .tips span {
+    margin-bottom: 12px;
+}
+.bill_container .tips .tips_btns{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 10px;
+}
+.tips_btns button.tips_btn{
+    color: var(--white-color--);
+    background-color: var(--very-dark-cyan--);
+    transition: all .3s;
+}
+
+.tips_btns button.tips_btn.active_tip{
+    background-color: var(--strong-cyan--);
+}
+
+
+
+.bill_container .tips .tips_btns > *{
+    width: calc((100% - 10px)/2);
+    padding:6px 4px;
+    border-radius: 4px;
+
+}
+
+@media (min-width:670px){
+    .bill_container .tips .tips_btns > *{
+        width: calc((100% - 20px)/3);
+    }
+}
+/*End bill_container*/
+
+/*Error-Msg*/
+.erro-msg{
+    position: absolute;
+    color: var(--red-color);
+    top: 0;
+    right: 0;
+    font-size: 12px;
+    font-weight: 600;
+    display: none;
+}
+
+
+main .result{
+    background-color: var(--very-dark-cyan--);
+    border-radius: var(--border--radius);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.result > div{
+    display: flex;
+}
+
+.result > div.total{
+    margin-bottom: 25px;
+}
+.result > div p.tip_info{
+    flex: 1;
+    font-size: 13px;
+    color: var(--very-light-grayish-cyan--);
+    font-weight: var(--fw-700--);
+    align-self: flex-end;
+}
+.result > div p.tip_info span{
+    color: var(--grayish--cyan--);
+    font-size: 12px;
+}
+
+.result > div p.large_num{
+    color: var(--strong-cyan--);
+    font-size: 32px;
+    font-weight: 900;
+}
+@media (min-width:768px){
+    .result > div p.large_num{
+        font-size: 38px;
+    }
+}
+.result input[type="reset"]{
+    text-transform: uppercase;
+    padding: 8px;
+    color: var(--very-dark-cyan--);
+    font-weight: var(--fw-700--);
+    margin-top: auto;
+    cursor: pointer;
+    background-color: rgba(38, 192, 171,.4);
+}
+
+.result input[type="reset"].result-showen{
+    background-color: var(--strong-cyan--);
+}
+.tips_btns button.tips_btn:is(:hover,:focus-visible) , 
+.result input[type="reset"]:is(:hover,:focus-visible){
+    background-color: var(--hover--color);
+    color: var(--very-dark-cyan--);
+}
+
